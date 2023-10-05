@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# Retrieve the old NordVPN status
+NORDVPN_STATUS=$(nordvpn status)
+
+# Format the old message
+FORMATTED_STATUS=$(echo "$NORDVPN_STATUS" | awk -F ': ' '/Status:/ {$2="Connected"; print "VPN-Status: " $2} /Hostname:/ {print "Hostname: " $2} /IP:/ {print "IP-Adresse: " $2} /Country:/ {print "Country: " $2} /City:/ {print "City: " $2} /Current technology:/ {print "Current technology: " $2} /Current protocol:/ {print "Current protocol: " $2} /Transfer:/ {print "Transfer: " $2} /Uptime:/ {print "Uptime: " $2}')
+
+
+# Create old JSON data with jq
+JSON_DATA=$(jq -n \
+                --arg msg "$FORMATTED_STATUS" \
+                '{topic: "nordvpn", message: $msg, title: "24h VPN Status Report", tags: ["info", "vpn"], priority: 4}')
+
+# Send the old message with curl
+curl -H "Authorization: Bearer <Token>" \
+     -H "Content-Type: application/json" \
+     -d "$JSON_DATA" \
+     https://ntfy.mregli.com
+
+# Disconnect and reconnect to NordVPN
+nordvpn disconnect
+nordvpn connect P2P
+
+sleep 10s
+
+# Retrieve the new NordVPN status
+NORDVPN_STATUS=$(nordvpn status)
+
+# Format the new message
+FORMATTED_STATUS=$(echo "$NORDVPN_STATUS" | awk -F ': ' '/Status:/ {$2="Connected"; print "VPN-Status: " $2} /Hostname:/ {print "Hostname: " $2} /IP:/ {print "IP-Adresse: " $2} /Country:/ {print "Country: " $2} /City:/ {print "City: " $2} /Current technology:/ {print "Current technology: " $2} /Current protocol:/ {print "Current protocol: " $2} /Transfer:/ {print "Transfer: " $2} /Uptime:/ {print "Uptime: " $2}')
+
+# Create new JSON data with jq
+JSON_DATA=$(jq -n \
+                --arg msg "$FORMATTED_STATUS" \
+                '{topic: "nordvpn", message: $msg, title: "New VPN Status Report", tags: ["info", "vpn"], priority: 4}')
+
+# Send the new message with curl
+curl -H "Authorization: Bearer <Token>" \
+     -H "Content-Type: application/json" \
+     -d "$JSON_DATA" \
+     https://ntfy.mregli.com
