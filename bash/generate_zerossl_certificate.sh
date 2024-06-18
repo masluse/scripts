@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Konfigurationsvariablen
-DOMAIN="manuel.regli.users.bbw-it.ch"
-NSUPDATE_SERVER="ns.users.bbw-it.ch"
-TTL=120
-NSUPDATE_KEY="$HOME/bbw.key"
-ACME="$HOME/.acme.sh/acme.sh"
-MAIL="manuel.1231231234@gmail.com"
+# Verwendet Umgebungsvariablen, die beim Start übergeben werden
+DOMAIN=${DOMAIN}
+NSUPDATE_SERVER=${NSUPDATE_SERVER}
+TTL=${TTL}
+NSUPDATE_KEY=${NSUPDATE_KEY}
+ACME=${ACME}
+MAIL=${MAIL}
 
 # Exportiere Umgebungsvariablen für acme.sh
 export NSUPDATE_SERVER
