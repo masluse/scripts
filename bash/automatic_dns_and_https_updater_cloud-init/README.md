@@ -2,35 +2,8 @@
 
 ## Übersicht
 
-Dieses Repository enthält ein einfaches Python-Skript, das grundlegende Datenanalysen durchführt. Das Skript liest eine CSV-Datei ein, berechnet einige grundlegende Statistiken und gibt die Ergebnisse in der Konsole aus.
+Dieses Script kann man als Cloud Init hinzufügen damit der Server einen Nginx Webserver deployed mit Gültigem Zertifikat und DNS-Eintrag.
 
-## Installation
-
-1. Klonen Sie das Repository:
-   ```sh
-   git clone https://github.com/IhrBenutzername/repository-name.git
-Navigieren Sie in das Verzeichnis des Repositorys:
-
-sh
-Code kopieren
-cd repository-name
-Installieren Sie die erforderlichen Bibliotheken:
-
-sh
-Code kopieren
-pip install pandas
-Verwendung
-Stellen Sie sicher, dass sich die zu analysierende CSV-Datei im selben Verzeichnis wie das Skript befindet oder geben Sie den Pfad zur Datei an.
-
-Führen Sie das Skript aus:
-
-sh
-Code kopieren
-python script.py data.csv
-Das Skript gibt die folgenden Informationen aus:
-
-Anzahl der Zeilen und Spalten in der CSV-Datei
-Grundlegende Statistiken für jede numerische Spalte (Mittelwert, Median, Standardabweichung usw.)
 ## Beispiel
 Ein Beispiel für die Ausgabe des Skripts könnte wie folgt aussehen:
 ``` bash
@@ -165,28 +138,18 @@ no crontab for root
 [Tue Jun 18 10:54:27 UTC 2024] Le_LinkCert='https://acme.zerossl.com/v2/DV90/cert/-FTP1cH7Z0dXDF2jrzVWTw'
 [Tue Jun 18 10:54:28 UTC 2024] Cert success.
 -----BEGIN CERTIFICATE-----
-MIIEGjCCA6CgAwIBAgIQGQFVDqMVVJ9qqGeXlGoMoDAKBggqhkjOPQQDAzBLMQsw
-CQYDVQQGEwJBVDEQMA4GA1UEChMHWmVyb1NTTDEqMCgGA1UEAxMhWmVyb1NTTCBF
-Q0MgRG9tYWluIFNlY3VyZSBTaXRlIENBMB4XDTI0MDYxODAwMDAwMFoXDTI0MDkx
-NjIzNTk1OVowJzElMCMGA1UEAxMcbWFudWVsLnJlZ2xpLnVzZXJzLmJidy1pdC5j
-aDBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABMGOhRyvMXOWw4gksv61vv2YqjMg
-n+WiZuQtOdKmz4zEEIdVFMfCsSmwo/VjEPx7gcGeqoibTqUV4RM2xXWC46mjggKI
-MIIChDAfBgNVHSMEGDAWgBQPa+ZLzjlHrvZ+kB558DCRkshfozAdBgNVHQ4EFgQU
-AQ7ogiRl3RcCTpmBrfhQQPgnBicwDgYDVR0PAQH/BAQDAgeAMAwGA1UdEwEB/wQC
-MAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMEkGA1UdIARCMEAwNAYL
-KwYBBAGyMQECAk4wJTAjBggrBgEFBQcCARYXaHR0cHM6Ly9zZWN0aWdvLmNvbS9D
-UFMwCAYGZ4EMAQIBMIGIBggrBgEFBQcBAQR8MHowSwYIKwYBBQUHMAKGP2h0dHA6
-Ly96ZXJvc3NsLmNydC5zZWN0aWdvLmNvbS9aZXJvU1NMRUNDRG9tYWluU2VjdXJl
-U2l0ZUNBLmNydDArBggrBgEFBQcwAYYfaHR0cDovL3plcm9zc2wub2NzcC5zZWN0
-aWdvLmNvbTCCAQQGCisGAQQB1nkCBAIEgfUEgfIA8AB2AHb/iD8KtvuVUcJhzPWH
-ujS0pM27KdxoQgqf5mdMWjp0AAABkCr7o1kAAAQDAEcwRQIhAMTed+m/J51/xrCw
-BoL0Wu/uRBzfQqVvaf7dRhCEK4wEAiBIjPVC2EutW1/tnTduTu/tDx0RwtTs3CMG
-j7C7RlP2qQB2AD8XS0/XIkdYlB1lHIS+DRLtkDd/H4Vq68G/KIXs+GRuAAABkCr7
-oxoAAAQDAEcwRQIgWC9qIB4RL9nMxTr7xCjcOCwby4GJYGRGYDg+jNLQ+OoCIQDY
-9jOipV8pTD5lqY0JHialtXvK6qOmjERuA+KQKNNlNDAnBgNVHREEIDAeghxtYW51
-ZWwucmVnbGkudXNlcnMuYmJ3LWl0LmNoMAoGCCqGSM49BAMDA2gAMGUCMQDZYbCN
-1LssMlG8zFWCKn+FnAGGRXsYppMvTlLPN3agR/q1obKH9LNVK5Di4qkv7jUCMFD/
-MK09jB3C9vNsWpfdhQCWNAekb0tCgCMeCfxRSf2ffmBCaCOd0zAne3ZODQHHwQ==
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 -----END CERTIFICATE-----
 [Tue Jun 18 10:54:28 UTC 2024] Your cert is in: /root/.acme.sh/manuel.regli.users.bbw-it.ch_ecc/manuel.regli.users.bbw-it.ch.cer
 [Tue Jun 18 10:54:28 UTC 2024] Your cert key is in: /root/.acme.sh/manuel.regli.users.bbw-it.ch_ecc/manuel.regli.users.bbw-it.ch.key
