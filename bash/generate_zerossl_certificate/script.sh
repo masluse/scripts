@@ -1,16 +1,11 @@
 #!/bin/bash
 
 # Verwendet Umgebungsvariablen, die beim Start übergeben werden
-DOMAIN=${DOMAIN}
-NSUPDATE_SERVER=${NSUPDATE_SERVER}
-TTL=${TTL}
-NSUPDATE_KEY=${NSUPDATE_KEY}
-ACME=${ACME}
-MAIL=${MAIL}
+# ${DOMAIN} ${NSUPDATE_SERVER} ${TTL} ${NSUPDATE_KEY} ${ACME} ${MAIL} ${NSUPDATE_KEY_CONTENT}
 
-# Exportiere Umgebungsvariablen für acme.sh
-export NSUPDATE_SERVER
-export NSUPDATE_KEY
+# Create the NSUPDATE key file
+echo "${NSUPDATE_KEY_CONTENT}" > $HOME/${NSUPDATE_KEY}
+chmod 600 $HOME/${NSUPDATE_KEY}
 
 # DNS-Update Skript für das Hinzufügen des TXT-Eintrags
 dns_add() {
