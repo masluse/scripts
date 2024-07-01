@@ -1,0 +1,12 @@
+services:
+  acme:
+    build: .
+    container_name: acme
+    environment:
+      - DOMAIN=manuel.regli.users.bbw-it.ch
+      - NSUPDATE_SERVER=ns.users.bbw-it.ch
+      - TTL=100
+      - NSUPDATE_KEY=bbw.key
+      - MAIL=manuel.1231231234@gmail.com
+    volumes:
+      - ./certs/:/certs/
