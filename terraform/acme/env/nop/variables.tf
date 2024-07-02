@@ -1,14 +1,21 @@
+locals {
+  tags = {
+    Company = "BBW"
+    Creator = "manuel.regli@lernende.bbw.ch"
+    Owner   = "linus.rechsteiner@lernende.bbw.ch"
+  }
+}
+
 variable "vms" {
   type = map(object({
     name = string
     ami_name = string
     instance_type = string
     architecture = string
-    public_ip = bool
     subnet = string
     vpc = string
-    tags = map(string)
     user_data = string
+    key_name = string
   }))
   default = {
     vogelsrv1001 = {
@@ -16,15 +23,10 @@ variable "vms" {
       ami_name = "*ubuntu-noble-24.04*"
       instance_type = "t2.large"
       architecture = "x86_64"
-      public_ip = true
-      subnet = "vogelsub1001"
+      subnet = "vogelpubsub1001"
       vpc = "vogelvpc1001"
+      key_name = "vockey"
       user_data = "../../scripts/vogelsrv1001.sh"
-      tags = {
-          Company = "BBW"
-          Creator = "manuel.regli@lernende.bbw.ch"
-          Owner   = "linus.rechsteiner@lernende.bbw.ch"
-      }
     }
   }
 }
@@ -45,11 +47,17 @@ variable "vpc" {
       name = "vogelvpc1001"
       cidr_block = "10.0.0.0/16"
       subnets = {
-        vogelsub1001 = {
-          name = "vogelsub1001"
+        vogelpubsub1001 = {
+          name = "vogelpubsub1001"
           cidr_block = "10.0.1.0/24"
           availability_zone = "us-east-1a"
           map_public_ip_on_launch = true
+        }
+        vogelprivsub1001 = {
+          name = "vogelprivsub1001"
+          cidr_block = "10.0.2.0/24"
+          availability_zone = "us-east-1a"
+          map_public_ip_on_launch = false
         }
       }  
     }
