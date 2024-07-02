@@ -1,5 +1,19 @@
 #!/bin/bash
 
+# Set up variables for the script
+DOMAIN="www.manuel.regli.users.bbw-it.ch"
+NSUPDATE_SERVER="ns.users.bbw-it.ch"
+TTL=120
+ACME="$HOME/.acme.sh/acme.sh"
+MAIL="manuel.1231231234@gmail.com"
+PUBLIC_IP=$(curl -s http://checkip.amazonaws.com)
+
+# The content of the NSUPDATE key
+NSUPDATE_KEY_CONTENT=$(cat <<'EOF'
+{Paste Key Here}
+EOF
+)
+
 # Update the package list and install necessary packages
 sudo apt-get update
 sudo apt-get install -y curl bind9utils nginx
@@ -7,37 +21,28 @@ sudo apt-get install -y curl bind9utils nginx
 # Install acme.sh
 curl https://get.acme.sh | sh
 
-# Set up variables for the script
-DOMAIN="domain"
-NSUPDATE_SERVER="ns-server"
-TTL=120
-ACME="$HOME/.acme.sh/acme.sh"
-MAIL="mail"
-PUBLIC_IP=$(curl -s http://checkip.amazonaws.com)
-
-# The content of the NSUPDATE key
-NSUPDATE_KEY_CONTENT="key"
-
+mkdir /setup
+cd /setup
 # Create the NSUPDATE key file
-echo "$NSUPDATE_KEY_CONTENT" > $HOME/bbw.key
-chmod 600 $HOME/bbw.key
+echo "$NSUPDATE_KEY_CONTENT" > ./bbw.key
+chmod 600 ./bbw.key
 
 # Export environment variables for acme.sh
 export NSUPDATE_SERVER
-export NSUPDATE_KEY="$HOME/bbw.key"
+export NSUPDATE_KEY="./bbw.key"
 export DOMAIN
 export TTL
 export ACME
 export MAIL
 
 # Download the generate_zerossl_certificate.sh script
-curl -o $HOME/generate_zerossl_certificate.sh https://raw.githubusercontent.com/masluse/scripts/main/bash/generate_zerossl_certificate/script.sh
+curl -o ./generate_zerossl_certificate.sh https://raw.githubusercontent.com/masluse/scripts/main/bash/generate_zerossl_certificate/script.sh
 
 # Make the script executable
-chmod +x $HOME/generate_zerossl_certificate.sh
+chmod +x ./generate_zerossl_certificate.sh
 
 # Execute the script
-$HOME/generate_zerossl_certificate.sh
+./generate_zerossl_certificate.sh
 
 echo "server $NSUPDATE_SERVER
 update delete $DOMAIN.
