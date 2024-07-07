@@ -10,7 +10,7 @@ PUBLIC_IP=$(curl -s http://checkip.amazonaws.com)
 
 # The content of the NSUPDATE key
 NSUPDATE_KEY_CONTENT=$(cat <<'EOF'
-{Key}
+{ KEY }
 EOF
 )
 

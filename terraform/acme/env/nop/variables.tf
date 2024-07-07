@@ -20,7 +20,7 @@ variable "vms" {
   default = {
     vogelsrv1001 = {
       name = "vogelsrv1001"
-      ami_name = "*ubuntu-noble-24.04*"
+      ami_name = "ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04*"
       instance_type = "t2.large"
       architecture = "x86_64"
       subnet = "vogelpubsub1001"
